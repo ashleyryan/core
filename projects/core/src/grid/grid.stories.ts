@@ -43,6 +43,7 @@ export { compact } from './docs/compact.story.js';
 export { darkTheme } from './docs/dark-theme.story.js';
 export { footer, footerOptional, footerActions } from './docs/footer.story.js';
 export { basic, keyboard, dynamicGrid } from './docs/grid.story.js';
+export { filtering } from './docs/filtering.story.js';
 export { kitchenSink } from './docs/kitchen-sink.story.js';
 export { pagination } from './docs/pagination.story.js';
 export { performance } from './docs/performance.story.js';
