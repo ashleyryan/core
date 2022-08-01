@@ -298,6 +298,29 @@ describe('button element', () => {
       expect(component.disabled).toBeTruthy();
     });
 
+    it('should stay disabled when loadingState changes to default, when disabled is set mid-loading lifecycle', async () => {
+      await componentIsStable(component);
+      component.loadingState = ClrLoadingState.default;
+      await componentIsStable(component);
+
+      expect(component.disabled).not.toBeTruthy();
+
+      component.loadingState = ClrLoadingState.loading;
+      await componentIsStable(component);
+      expect(component.disabled).toBeTruthy();
+
+      component.disabled = true;
+      await componentIsStable(component);
+
+      component.loadingState = ClrLoadingState.success;
+      await componentIsStable(component);
+      expect(component.disabled).toBeTruthy();
+
+      component.loadingState = ClrLoadingState.default;
+      await componentIsStable(component);
+      expect(component.disabled).toBeTruthy();
+    });
+
     it('should default to spinner size to "18"', async () => {
       component.loadingState = ClrLoadingState.loading;
       await componentIsStable(component);
